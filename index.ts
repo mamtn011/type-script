@@ -17,6 +17,10 @@ const price: number = 2490;
 const productDetails: string = `The price of "${productCode}" is: ${price}`;
 // console.log(productDetails);
 
+function isEven(num: number): boolean {
+  return num % 2 === 0;
+}
+// console.log(isEven(11));
 const isDivisible = (num: number): boolean => num % 4 === 0 && num % 8 === 0;
 // console.log(isDivisible(20));
 
@@ -25,3 +29,8 @@ const bigNum2: bigint = 9007199254740991n;
 const difference: bigint = bigNum1 - bigNum2;
 const bigNumMake: bigint = BigInt(2 ** 54);
 // console.log(bigNumMake);
+
+let vAny: any = 10; // We can assign anything to any
+let vUnknown: unknown = "10"; // We can assign anything to unknown just like any
+let s1: string = vAny; // Any is assignable to anything
+// let s2: string = vUnknown; // it shows an error
