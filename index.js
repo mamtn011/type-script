@@ -29,3 +29,19 @@ let vAny = 10; // We can assign anything to any
 let vUnknown = "10"; // We can assign anything to unknown just like any
 let s1 = vAny; // Any is assignable to anything
 // let s2: string = vUnknown; // it shows an error
+// optional parameter
+function introduceMe(name, id) {
+    return id
+        ? `Hello, I am ${name} and my id is ${id}.`
+        : `Hello, I am ${name}!`;
+}
+// console.log(introduceMe("Mobin"));
+// console.log(introduceMe("Mobin", 1130947042));
+// Array
+const arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const arr2 = new Array(1, 3, 5, 7, 9);
+const arr3 = Array.of("S", "M", "T", "W", "T", "F", "S");
+const mapVal = arr1.map((el) => {
+    return el % 2 === 0;
+});
+console.log(mapVal);
