@@ -171,3 +171,70 @@ const isAdmin: (user: LoggedInUser) => string = (
 };
 // console.log(isAdmin(user1));
 // console.log(isAdmin(user2));
+
+//! tuples ..............................................................
+// tuples allow you to store a fixed-sized collection of element. they are similar to array. the types of tuples elements are fixed and declared at the time of creation.
+
+type ProductInfo = [string, number, boolean];
+const product1: ProductInfo = ["SD-102", 2490, true];
+const product2: ProductInfo = ["SD-103", 2290, false];
+
+const getProductDetails: (product: ProductInfo) => string = (
+  product: ProductInfo
+): string => {
+  const [code, price, areSizesAvailable] = product;
+  return `Code: ${code}, Price: ${price}, Size available: ${
+    areSizesAvailable ? "Yes" : "No"
+  }`;
+};
+// console.log(getProductDetails(product1));
+// console.log(getProductDetails(product2));
+
+//* here tuples are like array, you can push,pop the element. to prevent this you have to add readonly  before tuples.
+
+product1.push("product details here");
+// console.log(product1);
+type ProductInfoReadonly = readonly [string, number, boolean];
+const product3: ProductInfoReadonly = ["SD-105", 2290, false];
+//product3.push("product details here"); // here throw an error
+
+//! unions ..............................................................
+// unions allow you to define multiple types in a single variable or type, where you can use only one type of data.
+const modifyUserInput: (userInput: string | number) => string | number = (
+  userInput: string | number
+) => {
+  if (typeof userInput === "number") {
+    return userInput * 2;
+  } else {
+    return userInput.toLocaleUpperCase();
+  }
+};
+
+// console.log(modifyUserInput(10));
+// console.log(modifyUserInput("mustakim al mobin"));
+//console.log(modifyUserInput(true)); // here throw an error
+
+//! intersections ..............................................................
+// intersections allow you to define multiple types in a single type, where you must to use all types of data.
+
+type People = {
+  name: string;
+  age: number;
+};
+
+type Employee = {
+  id: number;
+  department: string;
+};
+
+type EmployeeDetails = People & Employee;
+
+const employee1: EmployeeDetails = {
+  name: "Abul Hossen",
+  age: 30,
+  id: 1101,
+  department: "Marketing",
+};
+
+//! Generics ...................................................................
+// generics allow you to create reusable components or function

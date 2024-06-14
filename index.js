@@ -89,7 +89,7 @@ const student1 = {
     greet: (country) => `Hello, I am ${student1.name} from ${country}`,
 };
 // console.log(student1.greet("Bangladesh"));
-//? enum ...................................................
+//! enum ..............................................................
 // enum allow a property to contain a set of constant value
 var Roles;
 (function (Roles) {
@@ -112,5 +112,33 @@ const isAdmin = (user) => {
         ? `${name} (${email}) is an admin`
         : `${name} (${email}) is not an admin`;
 };
-// console.log(isAdmin(user1));
-// console.log(isAdmin(user2));
+const product1 = ["SD-102", 2490, true];
+const product2 = ["SD-103", 2290, false];
+const getProductDetails = (product) => {
+    const [code, price, areSizesAvailable] = product;
+    return `Code: ${code}, Price: ${price}, Size available: ${areSizesAvailable ? "Yes" : "No"}`;
+};
+// console.log(getProductDetails(product1));
+// console.log(getProductDetails(product2));
+//* here tuples are like array, you can push,pop the element. to prevent this you have to add readonly  before tuples.
+product1.push("product details here");
+const product3 = ["SD-105", 2290, false];
+//product3.push("product details here"); // here throw an error
+//! unions ..............................................................
+// unions allow you to define multiple types in a single variable or type, where you can use only one type of data.
+const modifyUserInput = (userInput) => {
+    if (typeof userInput === "number") {
+        return userInput * 2;
+    }
+    else {
+        return userInput.toLocaleUpperCase();
+    }
+};
+const employee1 = {
+    name: "Abul Hossen",
+    age: 30,
+    id: 1101,
+    department: "Marketing",
+};
+//! Generics ...................................................................
+// generics allow you to create reusable components or function
