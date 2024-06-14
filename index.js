@@ -88,4 +88,29 @@ const student1 = {
     age: 8,
     greet: (country) => `Hello, I am ${student1.name} from ${country}`,
 };
-console.log(student1.greet("Bangladesh"));
+// console.log(student1.greet("Bangladesh"));
+//? enum ...................................................
+// enum allow a property to contain a set of constant value
+var Roles;
+(function (Roles) {
+    Roles["user"] = "user";
+    Roles["admin"] = "admin";
+})(Roles || (Roles = {}));
+const user1 = {
+    name: "Mobin",
+    email: "abcd@gmail.com",
+    role: Roles.user,
+};
+const user2 = {
+    name: "Mustakim",
+    email: "admin@gmail.com",
+    role: Roles.admin,
+};
+const isAdmin = (user) => {
+    const { name, email, role } = user;
+    return role === "admin"
+        ? `${name} (${email}) is an admin`
+        : `${name} (${email}) is not an admin`;
+};
+// console.log(isAdmin(user1));
+// console.log(isAdmin(user2));

@@ -73,7 +73,7 @@ const person: {
   },
 };
 
-//? type alias .................................................
+//! type alias ..........................................................
 //Type Aliases allow defining types with a custom name
 type CarYear = number;
 type CarType = string;
@@ -122,7 +122,7 @@ const person2: Person = {
   },
 };
 
-//? call signatures ........................................
+//! call signatures ..................................................
 // call signature is simply define type of a function in an object type notation
 type Student = {
   name: string;
@@ -135,4 +135,39 @@ const student1: Student = {
   age: 8,
   greet: (country): string => `Hello, I am ${student1.name} from ${country}`,
 };
-console.log(student1.greet("Bangladesh"));
+// console.log(student1.greet("Bangladesh"));
+
+//! enum ..............................................................
+// enum allow a property to contain a set of constant value
+enum Roles {
+  user = "user",
+  admin = "admin",
+}
+
+type LoggedInUser = {
+  name?: string;
+  email: string;
+  role: Roles;
+};
+
+const user1: LoggedInUser = {
+  name: "Mobin",
+  email: "abcd@gmail.com",
+  role: Roles.user,
+};
+const user2: LoggedInUser = {
+  name: "Mustakim",
+  email: "admin@gmail.com",
+  role: Roles.admin,
+};
+
+const isAdmin: (user: LoggedInUser) => string = (
+  user: LoggedInUser
+): string => {
+  const { name, email, role } = user;
+  return role === "admin"
+    ? `${name} (${email}) is an admin`
+    : `${name} (${email}) is not an admin`;
+};
+// console.log(isAdmin(user1));
+// console.log(isAdmin(user2));
