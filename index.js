@@ -141,4 +141,28 @@ const employee1 = {
     department: "Marketing",
 };
 //! Generics ...................................................................
-// generics allow you to create reusable components or function
+// generics allow you to create reusable components or functions that can work with multiple data types
+function logAndReturn(value) {
+    return value;
+}
+const val1 = logAndReturn(23);
+const val2 = logAndReturn("Hello World");
+//* we can define type for generic when  passing argument
+const numVal = logAndReturn(23);
+const stringVal = logAndReturn("Hello World");
+//* we can use multiple type in generics
+const add = (val1, val2) => {
+    return { val1, val2 };
+};
+const result = add(12, "hello");
+console.log(result);
+//* we can fixed a type for generic using extends keyword
+const addId = (obj) => {
+    const id = Math.floor(Math.random() * 100);
+    return { ...obj, id };
+};
+const user = {
+    name: "Abul Mia",
+    age: 30,
+};
+const user3 = addId(user);

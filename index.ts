@@ -237,4 +237,51 @@ const employee1: EmployeeDetails = {
 };
 
 //! Generics ...................................................................
-// generics allow you to create reusable components or function
+// generics allow you to create reusable components or functions that can work with multiple data types
+function logAndReturn<T>(value: T): T {
+  return value;
+}
+const val1 = logAndReturn(23);
+const val2 = logAndReturn("Hello World");
+//* we can define type for generic when  passing argument
+const numVal = logAndReturn<number>(23);
+const stringVal = logAndReturn<string>("Hello World");
+//* we can use multiple type in generics
+const add = <T, U>(val1: T, val2: U) => {
+  return { val1, val2 };
+};
+const result = add<number, string>(12, "hello");
+// console.log(result);
+//* we can fixed a type for generic using extends keyword
+const addId = <Type extends object>(obj: Type) => {
+  const id = Math.floor(Math.random() * 100);
+  return { ...obj, id };
+};
+const user = {
+  name: "Abul Mia",
+  age: 30,
+};
+const user3 = addId(user);
+
+//! Interfaces ...................................................................
+// interfaces are very similar to alias, and in many cases you can choose between them freely. Almost all features of an interface are available in type.
+interface Myself {
+  name: string;
+  age: number;
+}
+
+const Mobin: Myself = {
+  name: "Mobin",
+  age: 33,
+};
+//* interface can extend another interface
+interface MyDetails extends Myself {
+  isDeveloper: boolean;
+  stack: string;
+}
+const myDetails: MyDetails = {
+  name: "Mobin",
+  age: 33,
+  isDeveloper: true,
+  stack: "MEARN",
+};
