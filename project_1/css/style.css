@@ -1,0 +1,48 @@
+/* theme  */
+:root {
+  --white-color: #fff;
+  --black-color: #000;
+  --h1-color: #030507;
+  --para-color: #666;
+}
+
+/* base rule */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  color: var(--h1-color);
+  font-weight: 600;
+}
+
+p {
+  color: var(--para-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
