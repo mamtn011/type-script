@@ -196,7 +196,7 @@ product1.push("product details here");
 // console.log(product1);
 type ProductInfoReadonly = readonly [string, number, boolean];
 const product3: ProductInfoReadonly = ["SD-105", 2290, false];
-//product3.push("product details here"); // here throw an error
+//product3.push("product details here"); //? here throw an error
 
 //! unions ..............................................................
 // unions allow you to define multiple types in a single variable or type, where you can use only one type of data.
@@ -212,7 +212,7 @@ const modifyUserInput: (userInput: string | number) => string | number = (
 
 // console.log(modifyUserInput(10));
 // console.log(modifyUserInput("mustakim al mobin"));
-//console.log(modifyUserInput(true)); // here throw an error
+//console.log(modifyUserInput(true)); //? here throw an error
 
 //! intersections ..............................................................
 // intersections allow you to define multiple types in a single type, where you must to use all types of data.

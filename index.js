@@ -123,7 +123,7 @@ const getProductDetails = (product) => {
 //* here tuples are like array, you can push,pop the element. to prevent this you have to add readonly  before tuples.
 product1.push("product details here");
 const product3 = ["SD-105", 2290, false];
-//product3.push("product details here"); // here throw an error
+//product3.push("product details here"); //? here throw an error
 //! unions ..............................................................
 // unions allow you to define multiple types in a single variable or type, where you can use only one type of data.
 const modifyUserInput = (userInput) => {
@@ -155,7 +155,7 @@ const add = (val1, val2) => {
     return { val1, val2 };
 };
 const result = add(12, "hello");
-console.log(result);
+// console.log(result);
 //* we can fixed a type for generic using extends keyword
 const addId = (obj) => {
     const id = Math.floor(Math.random() * 100);
@@ -166,3 +166,13 @@ const user = {
     age: 30,
 };
 const user3 = addId(user);
+const Mobin = {
+    name: "Mobin",
+    age: 33,
+};
+const myDetails = {
+    name: "Mobin",
+    age: 33,
+    isDeveloper: true,
+    stack: "MEARN",
+};
