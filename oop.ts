@@ -239,3 +239,28 @@ class Circle extends Shape {
 const circle: Circle = new Circle("red", 5);
 // console.log(circle.calculateArea());
 // circle.displayArea();
+
+class Rectangle extends Shape {
+  constructor(
+    protected color: string,
+    protected length: number,
+    protected width: number
+  ) {
+    super(color);
+  }
+  public calculateArea(): number {
+    return this.length * this.width;
+  }
+
+  displayArea: () => void = (): void => {
+    console.log(
+      `This is a ${this.color} color rectangle with the length ${
+        this.length
+      } and width ${this.width}. Area is: ${this.calculateArea()}`
+    );
+  };
+}
+
+const rectangle: Rectangle = new Rectangle("orange", 5, 6);
+console.log(rectangle.calculateArea());
+rectangle.displayArea();

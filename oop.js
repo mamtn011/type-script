@@ -199,5 +199,25 @@ var Circle = /** @class */ (function (_super) {
     return Circle;
 }(Shape));
 var circle = new Circle("red", 5);
-console.log(circle.calculateArea());
-circle.displayArea();
+// console.log(circle.calculateArea());
+// circle.displayArea();
+var Rectangle = /** @class */ (function (_super) {
+    __extends(Rectangle, _super);
+    function Rectangle(color, length, width) {
+        var _this = _super.call(this, color) || this;
+        _this.color = color;
+        _this.length = length;
+        _this.width = width;
+        _this.displayArea = function () {
+            console.log("This is a ".concat(_this.color, " color rectangle with the length ").concat(_this.length, " and width ").concat(_this.width, ". Area is: ").concat(_this.calculateArea()));
+        };
+        return _this;
+    }
+    Rectangle.prototype.calculateArea = function () {
+        return this.length * this.width;
+    };
+    return Rectangle;
+}(Shape));
+var rectangle = new Rectangle("orange", 5, 6);
+console.log(rectangle.calculateArea());
+rectangle.displayArea();
