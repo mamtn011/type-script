@@ -162,3 +162,35 @@ class Students3 extends Persons3 {
 }
 
 //! Getter and Setter ..............................................................
+//? getter method allow you to get/retrieve the value of a class property
+//? setter method allow you to set a value of a class property with condition or validation
+
+class Persons4 {
+  private _age: number | undefined;
+
+  constructor(public name: string, public hobbies: string[]) {}
+
+  public set age(age: number) {
+    if (age > 150 || age < 0) {
+      throw new Error("Age is invalid!");
+    }
+    this._age = age;
+  }
+
+  public get age() {
+    if (this._age === undefined) {
+      throw new Error("Age is not define!");
+    }
+    return this._age;
+  }
+
+  introduce(): string {
+    return `I am ${this.name} and I am ${
+      this._age
+    } now. I love ${this.hobbies.join(", ")}.`;
+  }
+}
+const persons4: Persons4 = new Persons4("Mobin", ["reading", "playing"]);
+persons4.age = 12;
+// console.log(persons4.introduce());
+// console.log(persons4.age);
