@@ -125,7 +125,7 @@ var Students3 = /** @class */ (function (_super) {
     };
     return Students3;
 }(Persons3));
-//! Getter and Setter ..............................................................
+//! Getter and Setter ..........................................................
 //? getter method allow you to get/retrieve the value of a class property
 //? setter method allow you to set a value of a class property with condition or validation
 var Persons4 = /** @class */ (function () {
@@ -158,3 +158,46 @@ var persons4 = new Persons4("Mobin", ["reading", "playing"]);
 persons4.age = 12;
 // console.log(persons4.introduce());
 // console.log(persons4.age);
+//! Static property ..............................................................
+//? static properties allow you to use them without create any instance of the class
+var MathOperations = /** @class */ (function () {
+    function MathOperations() {
+    }
+    MathOperations.sum = function (num1, num2) {
+        return num1 + num2;
+    };
+    MathOperations.sub = function (num1, num2) {
+        return num1 - num2;
+    };
+    MathOperations.Pi = Math.PI;
+    return MathOperations;
+}());
+// console.log(MathOperations.sum(12, 18));
+// console.log(MathOperations.sub(30, 18));
+//! Abstract classes ...............................................................
+//? Abstract class provide a way to define common properties and methods that multiple classes can share. It focus on inheritance. You cannot create any instance of abstract class.
+var Shape = /** @class */ (function () {
+    function Shape(color) {
+        this.color = color;
+    }
+    return Shape;
+}());
+var Circle = /** @class */ (function (_super) {
+    __extends(Circle, _super);
+    function Circle(color, radius) {
+        var _this = _super.call(this, color) || this;
+        _this.color = color;
+        _this.radius = radius;
+        _this.displayArea = function () {
+            console.log("This is a ".concat(_this.color, " circle with the radius ").concat(_this.radius, " and area is: ").concat(_this.calculateArea()));
+        };
+        return _this;
+    }
+    Circle.prototype.calculateArea = function () {
+        return Math.PI * this.radius * this.radius;
+    };
+    return Circle;
+}(Shape));
+var circle = new Circle("red", 5);
+console.log(circle.calculateArea());
+circle.displayArea();

@@ -161,7 +161,7 @@ class Students3 extends Persons3 {
   }
 }
 
-//! Getter and Setter ..............................................................
+//! Getter and Setter ..........................................................
 //? getter method allow you to get/retrieve the value of a class property
 //? setter method allow you to set a value of a class property with condition or validation
 
@@ -194,3 +194,48 @@ const persons4: Persons4 = new Persons4("Mobin", ["reading", "playing"]);
 persons4.age = 12;
 // console.log(persons4.introduce());
 // console.log(persons4.age);
+
+//! Static property ..............................................................
+//? static properties allow you to use them without create any instance of the class
+
+class MathOperations {
+  public static Pi: number = Math.PI;
+
+  public static sum(num1: number, num2: number): number {
+    return num1 + num2;
+  }
+  public static sub(num1: number, num2: number): number {
+    return num1 - num2;
+  }
+}
+// console.log(MathOperations.sum(12, 18));
+// console.log(MathOperations.sub(30, 18));
+//! Abstract classes ...............................................................
+//? Abstract class provide a way to define common properties and methods that multiple classes can share. It focus on inheritance. You cannot create any instance of abstract class.
+
+abstract class Shape {
+  constructor(protected color: string) {}
+  abstract calculateArea(): number;
+  abstract displayArea: () => void;
+}
+
+class Circle extends Shape {
+  constructor(protected color: string, protected radius: number) {
+    super(color);
+  }
+  public calculateArea(): number {
+    return Math.PI * this.radius * this.radius;
+  }
+
+  displayArea: () => void = (): void => {
+    console.log(
+      `This is a ${this.color} circle with the radius ${
+        this.radius
+      } and area is: ${this.calculateArea()}`
+    );
+  };
+}
+
+const circle: Circle = new Circle("red", 5);
+// console.log(circle.calculateArea());
+// circle.displayArea();
